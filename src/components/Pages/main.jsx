@@ -1,16 +1,21 @@
 import {useState, useEffect} from "react"
-import "dotenv/config"
-
-
+import axios from 'axios'
 
 export default function Main() {
-  const [image, setImage] = useState("https://img.freepik.com/free-vector/youtube-player-icon-with-flat-design_23-2147837753.jpg?size=338&ext=jpg")
-  console.log(process.env.REACT_APP_API_KEY)
+  const [data, setData] = useState([])
+
   
-  return (
+  useEffect(() => {
+    const api_key = process.env.API_KEY   
+     axios.get("https://api.themoviedb.org/3/movie/popular?api_key=" + api_key).then(response => {
+  console.log(response.data)
+  setData(response)
+}, [])
     
+  })
+  console.log(data)
+  return (
     <main>
-      <img src = {image} onClick = {() => setImage("https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-1024.png")} />
       
       
     </main>
