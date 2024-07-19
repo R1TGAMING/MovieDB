@@ -3,7 +3,7 @@ import axios from 'axios'
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
-import MainLayout from '../Layouts/mainLayout'
+import CardLayout from '../Layouts/cardLayout'
 
 export default function Main() {
   // Create a state variable for the data
@@ -26,7 +26,13 @@ axios.get("https://api.themoviedb.org/3/movie/popular?api_key=" + api_key)
   
   return (
     <main>
-      <MainLayout />
+      {data.map((item, index) => {
+      return (
+        <>
+        <CardLayout title = {item.title}/>
+        </>
+      )
+      })}
     </main>
   );
 }
