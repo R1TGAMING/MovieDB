@@ -8,7 +8,7 @@ import CardLayout from '../Layouts/cardLayout'
 export default function Main() {
   // Create a state variable for the data
   const [data, setData] = useState([])
-
+  console.log(data)
   // Get the api key from env
   const api_key = process.env.API_KEY
   
@@ -23,16 +23,18 @@ axios.get("https://api.themoviedb.org/3/movie/popular?api_key=" + api_key)
     })
     
   }, [])
-  
+
   return (
-    <main>
+    <ul>
       {data.map((item, index) => {
       return (
         <>
-        <CardLayout title = {item.title}/>
+          
+        <CardLayout title = {item.title} image = {item.poster_path} index = {index} text = {item.overview}/>
+          
         </>
       )
       })}
-    </main>
+</ul>
   );
 }
