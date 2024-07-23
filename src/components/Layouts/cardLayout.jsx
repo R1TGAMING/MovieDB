@@ -10,7 +10,7 @@ export default function CardLayout(props) {
       <li key = {index}>
     <div className="card-group">
   <div className="card">
-    <img className="card-img-top"      src={"https://image.tmdb.org/t/p/original" + image} alt={index}/>
+    <img className="card-img-top img-thumbnail"      src={"https://image.tmdb.org/t/p/original" + image} alt={index}/>
     <div className="card-body">
       <CardFrag textChild = {text} titleChild = {title}/>
     </div>

@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 
 import CardLayout from '../Layouts/cardLayout'
+import FigureLayout from '../Layouts/figureLayout'
 
 export default function Main() {
   // Create a state variable for the data
@@ -28,7 +29,7 @@ axios.get("https://api.themoviedb.org/3/movie/popular?api_key=" + api_key)
       <ul>
         {data.map((item, index) => {
       return (
-        <CardLayout key = {index} image = {item.poster_path} text = {item.overview} />
+        <FigureLayout key = {index} image = {item.poster_path} title = {item.overview} />
       )
         })}
       </ul>
